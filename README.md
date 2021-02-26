@@ -1,12 +1,12 @@
 # Games460-Team3
 
-## My team’s Game Design Document
+## Team Game Design Document
 [Game Design Document](https://docs.google.com/document/d/1H9uo_H6kx18xayMiXO7kKUEgWaNWdUOdgsRPuxk2k4E/edit?usp=sharing)
 
-## Team’s 6 Concepts (based on the motivations from Macklin/Sharp Chapter 9)
+## Team's 6 Game Concepts (based on the motivations from Macklin/Sharp Chapter 9)
 [6 Game Concepts](https://docs.google.com/document/d/1mB_hHAE-Edf_huZeTsrthANXjixePYgXDLvaID31po8/edit?usp=sharing)
 
-## Team Agreements
+## Team Agreement
 [Team Agreement](https://docs.google.com/document/d/1GazTIY0VVBIkL2jpC9U_C4jj-YFWbnRCJamxufZc-7Y/edit?usp=sharing)
 
 ## Team tracking spreadsheet
