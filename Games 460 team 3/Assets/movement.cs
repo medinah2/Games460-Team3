@@ -13,6 +13,18 @@ public class movement : MonoBehaviour
 
     // Start is called before the first frame update
 
+    void Start()
+    {
+        //Changes the lock state of our cursor to locked. 
+        //This hides the cursor and keeps it locked to the center of the game view.
+        //The CursorLockToggle method handles unlocking - to unlock or relock the cursor, press ESC.
+        Cursor.lockState = CursorLockMode.Locked;
+
+        //This code automatically grabs the references we need to components on the player object.
+        
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,5 +52,12 @@ public class movement : MonoBehaviour
         float v = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         Vector3 vel = playerTransform.forward * v + playerTransform.right * h + Vector3.down;
         playerCharacterController.Move(vel);
+    }
+
+    void CursorLockToggler() 
+    {
+        // If the user presses the escape key, cursor is unlocked and is no longer at the center of the screen & can be moved around. 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }
