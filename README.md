@@ -10,7 +10,6 @@
 [Team Agreement](https://docs.google.com/document/d/1GazTIY0VVBIkL2jpC9U_C4jj-YFWbnRCJamxufZc-7Y/edit?usp=sharing)
 
 ## Team tracking spreadsheet
-Tracking Spreadsheet 
 [Tracking Spreadsheet](https://docs.google.com/spreadsheets/d/1U7U_qFPl7VLqoJrhjOkHcT0ukcP-Yeqy04gw6n_SEEM/edit?usp=sharing)
 
 ## Game Style Concepts
