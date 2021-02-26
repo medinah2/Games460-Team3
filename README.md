@@ -1,5 +1,7 @@
 # Games460-Team3
 
+### Team 3 - Heavenly Medina, Georgia Myers, Terell Powell, Matthew Adelman
+
 ## Team Game Design Document
 [Game Design Document](https://docs.google.com/document/d/1H9uo_H6kx18xayMiXO7kKUEgWaNWdUOdgsRPuxk2k4E/edit?usp=sharing)
 
