@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 // https://youtu.be/4Kj6YUPLWCw
 
 public class AgentControl : MonoBehaviour {
@@ -62,12 +63,13 @@ public class AgentControl : MonoBehaviour {
 
     private void OnGUI(){
       // // sets gui text color to black to easily see
-      // GUI.contentColor = Color.black;
+     GUI.contentColor = Color.black;
       //
       // // if statement to determine if enough evidencr has been collected -- set to 10 but can be updated as we continue development
-      // if (Vector3.Distance(destination, player.position) <= 0.0005f){
-      //   GUI.Label(new Rect(100,100,300,30), "The Assassin caught you!" + Vector3.Distance(destination, player.position));
-      // }
-    }
+     //  if (Vector3.Distance(destination, player.position) <= 0.0005f){
+      // GUI.Label(new Rect(100,100,300,30), "The Assassin caught you!" + Vector3.Distance(destination, player.position));
+      // SceneManager.LoadScene("Start");
+      }
+    //}
 
 }
