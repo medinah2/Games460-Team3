@@ -13,7 +13,7 @@ public Waypoint nextWaypoint;
 [Range(0f, 5f)]
 public float width = 3f;
 
-public List<Waypoint> branches;
+public List<Waypoint> branches = new List<Waypoint>();
 
 [Range(0f, 5f)]
 public float branchRatio = 0.5f;
