@@ -17,6 +17,8 @@ public class Target : MonoBehaviour
 
     int duration;
 
+    int tempCount;
+
 
 
 
@@ -35,7 +37,7 @@ public class Target : MonoBehaviour
       // gets current value of evidenceCollected
       evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
     // Press K to destroy game object in hand
-    if (Input.GetKeyDown(KeyCode.K)) {
+      if (Input.GetKeyDown(KeyCode.K)) {
 
         DeleteFoodOne();
      }
@@ -59,18 +61,36 @@ public class Target : MonoBehaviour
       //if (pickUpObjects.foodInHand != true) {
 
         if (foodie.name == "Item") {
-          foodie.transform.parent = holdingFood.transform;
-          foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
-          //foodie.transform.position = holdingFood.transform.position + transform.up * 0.03f + transform.forward * -0.10f;
-         // foodie.gameObject.tag = "slotOneFood";
-         evidenceCollected++;
-         Debug.Log("evidenceCollected:  " + evidenceCollected);
-
-
-         PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
-         Destroy(foodie);
+         //  foodie.transform.parent = holdingFood.transform;
+         //  foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
+         //  //foodie.transform.position = holdingFood.transform.position + transform.up * 0.03f + transform.forward * -0.10f;
+         // // foodie.gameObject.tag = "slotOneFood";
+         // evidenceCollected++;
+         // Debug.Log("evidenceCollected:  " + evidenceCollected);
+         //
+         //
+         // PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
+         // Destroy(foodie);
+         Debug.Log("clicked");
 
         }
+    }
+
+    private void OnTriggerEnter(Collider other){
+
+      evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
+
+      if(other.name == "Player"){
+        foodie.transform.parent = holdingFood.transform;
+        foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
+
+        evidenceCollected++;
+        Debug.Log("evidenceCollected:  " + evidenceCollected);
+
+        PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
+
+        Destroy(gameObject);
+      }
     }
 
     void DeleteFoodOne() {
