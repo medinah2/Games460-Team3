@@ -15,4 +15,4 @@
 [Tracking Spreadsheet](https://docs.google.com/spreadsheets/d/1U7U_qFPl7VLqoJrhjOkHcT0ukcP-Yeqy04gw6n_SEEM/edit?usp=sharing)
 
 ## Game Style Concepts
-[Tracking Spreadsheet](https://docs.google.com/document/d/1XG8U-7hpr_rd0P6dKJJE1TGcsxF5RbnfMOCXu94KnXs/edit?usp=sharing)
+[Design Concepts](https://docs.google.com/document/d/1XG8U-7hpr_rd0P6dKJJE1TGcsxF5RbnfMOCXu94KnXs/edit?usp=sharing)
