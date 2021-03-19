@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
 
+    public AudioClip Rip;
 
 
     // foodie GameObject represents food being picked up
@@ -91,6 +92,13 @@ public class Target : MonoBehaviour
 
         Destroy(gameObject);
       }
+
+      if(other.name == "Assassin" && SafeZone.destroy)
+        {
+            SafeZone.destroy = false;
+            AudioSource.PlayClipAtPoint(Rip, this.transform.position);
+            Destroy(gameObject);
+        }
     }
 
     void DeleteFoodOne() {

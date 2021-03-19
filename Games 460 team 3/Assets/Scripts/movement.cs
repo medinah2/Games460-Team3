@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class movement : MonoBehaviour
 {
@@ -8,20 +9,25 @@ public class movement : MonoBehaviour
     public CharacterController playerCharacterController;
     float pitch = 0;
     float yaw = 0;
-    public float sensitivity;
+    public static float sensitivity = 5;
     public float speed;
+    
+    //public static GameObject playerCamera;
 
     public int evidenceCollected = 0;
     // Start is called before the first frame update
 
     void Start()
     {
+    
+       // playerCamera = GameObject.Find("Player/PlayerView");
         //Changes the lock state of our cursor to locked.
         //This hides the cursor and keeps it locked to the center of the game view.
         //The CursorLockToggle method handles unlocking - to unlock or relock the cursor, press ESC.
         Cursor.lockState = CursorLockMode.Locked;
         PlayerPrefs.SetInt("evidenceCollected", 0);
 
+        
         //This code automatically grabs the references we need to components on the player object.
 
 
@@ -78,6 +84,12 @@ public class movement : MonoBehaviour
         GUI.Label(new Rect(10,10,300,20), "Evidence Collected: " + evidenceCollected);
       }
     }
+    
+    
+    //public static void AdjustSensitivity(float newSensitivity) {
+     // sensitivity = newSensitivity;
+    
+    //}
 
 
 

@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 {
 
     public GameObject timer;
-    public int minutes = 10;
+    public int minutes = 3;
     public int seconds = 1;
     public bool gracePeriod = true;
     public bool deduct = true;
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
 
     IEnumerator Grace()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(5);
         gracePeriod = false;
    
     }

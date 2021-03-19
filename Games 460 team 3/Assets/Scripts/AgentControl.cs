@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+
 
 
 // https://youtu.be/4Kj6YUPLWCw
@@ -12,26 +14,61 @@ public class AgentControl : MonoBehaviour {
   private NavMeshAgent assassin;
   Vector3 destination;
   int evidenceCollected;
+    public static bool collectEnough = false;
+    public bool moved = false;
+    
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+      
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
         // assassin.setDestination(player.position);
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
 
-      evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
 
-
-      if (Vector3.Distance(destination, player.position) > 1.0f){
+      if (Vector3.Distance(destination, player.position) > 1.0f && !SafeZone.destroy){
         destination = player.position;
         assassin.destination = destination;
       }
+      
+            if (SafeZone.destroy)
+            {
+                GameObject[] Evidence;
+                Evidence = GameObject.FindGameObjectsWithTag("Evidence");
+                GameObject closest = null;
+                float distance = Mathf.Infinity;
+                Vector3 position = transform.position;
+                foreach (GameObject Evi in Evidence)
+                {
+                    Vector3 diff = Evi.transform.position - position;
+                    float curDistance = diff.sqrMagnitude;
+                    if (curDistance < distance)
+                    {
+                        closest = Evi;
+                        distance = curDistance;
+                    }
+                }
+                destination = closest.transform.position;
+                assassin.destination = destination;
+               
+                
+            }
+
+           
+        
+
 
       enoughEvidence();
 
@@ -43,6 +80,7 @@ public class AgentControl : MonoBehaviour {
     void enoughEvidence(){
       if(evidenceCollected == 5){
         GetComponent<Renderer>().material.color = Color.red;
+            collectEnough = true;
         // would also increase speed here 
       }
     }
@@ -61,6 +99,24 @@ public class AgentControl : MonoBehaviour {
       // }
     }
 
+   
+        private void OnTriggerStay(Collider collision)
+        {
+            if (collision.name == "Police" && Police.hunting)
+            {
+            Debug.Log("The Assassin has been captured");
+            Destroy(this.gameObject);    
+            }
+        }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("Menu");
+
+        }
+    }
     private void OnGUI(){
       // // sets gui text color to black to easily see
      GUI.contentColor = Color.black;
