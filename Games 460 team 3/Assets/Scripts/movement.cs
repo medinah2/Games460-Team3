@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,14 +9,9 @@ public class movement : MonoBehaviour
     public CharacterController playerCharacterController;
     float pitch = 0;
     float yaw = 0;
-<<<<<<< HEAD
     public static float sensitivity = 2;
     public static float speed = 4;
-=======
-    public static float sensitivity = 5;
-    public float speed;
->>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
-    
+
     //public static GameObject playerCamera;
 
     public int evidenceCollected = 0;
@@ -24,7 +19,7 @@ public class movement : MonoBehaviour
 
     void Start()
     {
-    
+
        // playerCamera = GameObject.Find("Player/PlayerView");
         //Changes the lock state of our cursor to locked.
         //This hides the cursor and keeps it locked to the center of the game view.
@@ -32,7 +27,7 @@ public class movement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         PlayerPrefs.SetInt("evidenceCollected", 0);
 
-        
+
         //This code automatically grabs the references we need to components on the player object.
 
 
@@ -83,17 +78,17 @@ public class movement : MonoBehaviour
       GUI.contentColor = Color.black;
 
       // if statement to determine if enough evidencr has been collected -- set to 5 but can be updated as we continue development
-      if(evidenceCollected == 5){
+      if(evidenceCollected >= 5){
         GUI.Label(new Rect(10,10,300,30), "You have gathered enough evidence!");
       }else{
         GUI.Label(new Rect(10,10,300,20), "Evidence Collected: " + evidenceCollected);
       }
     }
-    
-    
+
+
     //public static void AdjustSensitivity(float newSensitivity) {
      // sensitivity = newSensitivity;
-    
+
     //}
 
 

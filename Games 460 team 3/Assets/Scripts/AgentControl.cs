@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,29 +16,25 @@ public class AgentControl : MonoBehaviour {
   int evidenceCollected;
     public static bool collectEnough = false;
     public bool moved = false;
-<<<<<<< HEAD
-    public static bool playerMurdered = false; 
-=======
-    
->>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
+    public static bool playerMurdered = false;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-      
+
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
         // assassin.setDestination(player.position);
 
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
 
 
@@ -46,7 +42,7 @@ public class AgentControl : MonoBehaviour {
         destination = player.position;
         assassin.destination = destination;
       }
-      
+
             if (SafeZone.destroy)
             {
                 GameObject[] Evidence;
@@ -66,12 +62,12 @@ public class AgentControl : MonoBehaviour {
                 }
                 destination = closest.transform.position;
                 assassin.destination = destination;
-               
-                
+
+
             }
 
-           
-        
+
+
 
 
       enoughEvidence();
@@ -85,7 +81,7 @@ public class AgentControl : MonoBehaviour {
       if(evidenceCollected == 5){
         GetComponent<Renderer>().material.color = Color.red;
             collectEnough = true;
-        // would also increase speed here 
+        // would also increase speed here
       }
     }
     void CheckDestinationReached() {
@@ -103,13 +99,13 @@ public class AgentControl : MonoBehaviour {
       // }
     }
 
-   
+
         private void OnTriggerStay(Collider collision)
         {
             if (collision.name == "Police" && Police.hunting)
             {
             Debug.Log("The Assassin has been captured");
-            Destroy(this.gameObject);    
+            Destroy(this.gameObject);
             }
         }
 
@@ -117,18 +113,14 @@ public class AgentControl : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-<<<<<<< HEAD
             playerMurdered = true;
-            //movement.speed = 0; 
-            
+            //movement.speed = 0;
+
             backToMenuButton.activateMenuButton();
             //something.setactive
             //GameObject.Find(BackToMenu);
             //BackToMenu.SetActive(true);
             //SceneManager.LoadScene("Menu");
-=======
-            SceneManager.LoadScene("Menu");
->>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
 
         }
     }
