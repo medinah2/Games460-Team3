@@ -16,7 +16,11 @@ public class AgentControl : MonoBehaviour {
   int evidenceCollected;
     public static bool collectEnough = false;
     public bool moved = false;
+<<<<<<< HEAD
+    public static bool playerMurdered = false; 
+=======
     
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
 
 
 
@@ -113,7 +117,18 @@ public class AgentControl : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+<<<<<<< HEAD
+            playerMurdered = true;
+            //movement.speed = 0; 
+            
+            backToMenuButton.activateMenuButton();
+            //something.setactive
+            //GameObject.Find(BackToMenu);
+            //BackToMenu.SetActive(true);
+            //SceneManager.LoadScene("Menu");
+=======
             SceneManager.LoadScene("Menu");
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
 
         }
     }

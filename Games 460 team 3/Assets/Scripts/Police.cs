@@ -12,9 +12,26 @@ public class Police : MonoBehaviour
     public static bool hunting = false;
     public static bool whistle = false;
     Vector3 destination;
+<<<<<<< HEAD
+
+    // Added for character movement
+    Animator animator;
+    public float velocity = .0f;
+    public float acceleration = .4f;
+    public float deceleration = .8f;
+    int velocityHash;
+
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        velocityHash = Animator.StringToHash("Velocity");
+
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
         police = this.GetComponent<NavMeshAgent>();
 
     }
@@ -26,6 +43,12 @@ public class Police : MonoBehaviour
         {
             destination = assassin.position;
             police.destination = destination;
+<<<<<<< HEAD
+            velocity += Time.deltaTime * acceleration;
+
+            animator.SetFloat(velocityHash, velocity);
+=======
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
         }
     }
 
@@ -44,6 +67,10 @@ public class Police : MonoBehaviour
             }
         }
     }
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
 
 }

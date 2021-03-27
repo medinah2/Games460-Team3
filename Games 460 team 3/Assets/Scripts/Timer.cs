@@ -60,6 +60,7 @@ public class Timer : MonoBehaviour
         if (seconds < 10)
         {
             timer.GetComponent<TextMeshProUGUI>().text = "" + minutes + ":0" + seconds;
+            //timer.transform.position = new Vector3(417,390,100);
         }
         else
         {

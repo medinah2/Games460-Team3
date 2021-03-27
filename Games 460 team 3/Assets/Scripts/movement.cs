@@ -9,8 +9,13 @@ public class movement : MonoBehaviour
     public CharacterController playerCharacterController;
     float pitch = 0;
     float yaw = 0;
+<<<<<<< HEAD
+    public static float sensitivity = 2;
+    public static float speed = 4;
+=======
     public static float sensitivity = 5;
     public float speed;
+>>>>>>> deeb55abcfbd1c22f2e1d0870b0c9cc81dbff300
     
     //public static GameObject playerCamera;
 
