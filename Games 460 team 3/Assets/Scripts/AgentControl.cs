@@ -100,10 +100,11 @@ public class AgentControl : MonoBehaviour {
     }
 
 
-        private void OnTriggerStay(Collider collision)
+        private void OnTriggerEnter(Collider collision)
         {
             if (collision.name == "Police" && Police.hunting)
             {
+            Police.caught = true;
             Debug.Log("The Assassin has been captured");
             Destroy(this.gameObject);
             }

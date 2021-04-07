@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 43126035}
   - component: {fileID: 43126034}
   - component: {fileID: 43126033}
+  - component: {fileID: 43126042}
   m_Layer: 0
   m_Name: Police
   m_TagString: Police
@@ -552,6 +553,7 @@ MonoBehaviour:
   Popo: {fileID: 43126034}
   Whistle: {fileID: 8300000, guid: e2986bfe496b25c4f84bcfcb12d6944f, type: 3}
   assassin: {fileID: 1037136747}
+  Pol: {fileID: 43126041}
   velocity: 0
   acceleration: 0.4
   deceleration: 0.8
@@ -631,6 +633,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &43126042
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43126032}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &51355022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7320,6 +7338,7 @@ MonoBehaviour:
   Popo: {fileID: 831323549}
   Whistle: {fileID: 8300000, guid: e2986bfe496b25c4f84bcfcb12d6944f, type: 3}
   assassin: {fileID: 1037136747}
+  Pol: {fileID: 0}
   velocity: 0
   acceleration: 0.4
   deceleration: 0.8
@@ -12080,6 +12099,7 @@ GameObject:
   - component: {fileID: 1295180230}
   - component: {fileID: 1295180231}
   - component: {fileID: 1295180232}
+  - component: {fileID: 1295180233}
   m_Layer: 0
   m_Name: Police
   m_TagString: Police
@@ -12178,6 +12198,7 @@ MonoBehaviour:
   Popo: {fileID: 1295180231}
   Whistle: {fileID: 8300000, guid: e2986bfe496b25c4f84bcfcb12d6944f, type: 3}
   assassin: {fileID: 1037136747}
+  Pol: {fileID: 1295180227}
   velocity: 0
   acceleration: 0.4
   deceleration: 0.8
@@ -12332,6 +12353,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &1295180233
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295180223}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1298071023
 PrefabInstance:
   m_ObjectHideFlags: 0

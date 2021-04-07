@@ -8,10 +8,13 @@ public class Police : MonoBehaviour
     public AudioSource Popo;
     public AudioClip Whistle;
     public Transform assassin;
+    public Transform Pol;
     private NavMeshAgent police;
     public static bool hunting = false;
     public static bool whistle = false;
+    public static bool caught = false;
     Vector3 destination;
+    Vector3 start;
 
 
     // Added for character movement
@@ -29,26 +32,37 @@ public class Police : MonoBehaviour
 
         police = this.GetComponent<NavMeshAgent>();
 
+        start = Pol.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hunting && Vector3.Distance(destination, assassin.position) > 1.0f)
+        if (!caught)
         {
-            destination = assassin.position;
-            police.destination = destination;
+            if (hunting && Vector3.Distance(destination, assassin.position) > 1.0f)
+            {
+                destination = assassin.position;
+                police.destination = destination;
 
-            velocity += Time.deltaTime * acceleration;
+                velocity += Time.deltaTime * acceleration;
 
-            animator.SetFloat(velocityHash, velocity);
+                animator.SetFloat(velocityHash, velocity);
 
+            }
         }
+
+        if(caught)
+        {
+            police.destination = start;
+        }
+
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.name == "Player" && AgentControl.collectEnough == true)
+        if (collision.name == "Player" && AgentControl.collectEnough == true && !caught)
         {
             hunting = true;
             destination = assassin.position;
@@ -59,7 +73,10 @@ public class Police : MonoBehaviour
                 Popo.PlayOneShot(Whistle);
                 whistle = true;
             }
+
+           
         }
+       
     }
 
 

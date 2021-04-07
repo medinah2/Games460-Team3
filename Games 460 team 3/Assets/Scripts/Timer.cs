@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        if (gracePeriod == false)
+        if (gracePeriod == false && !Police.caught)
         {
             //Once the grace period is over the timer starts
             if (deduct == true)
