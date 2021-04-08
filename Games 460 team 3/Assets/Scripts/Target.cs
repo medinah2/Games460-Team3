@@ -82,8 +82,8 @@ public class Target : MonoBehaviour
       evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
 
       if(other.name == "Player"){
-        foodie.transform.parent = holdingFood.transform;
-        foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
+        // foodie.transform.parent = holdingFood.transform;
+        // foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
 
         evidenceCollected++;
         Debug.Log("evidenceCollected:  " + evidenceCollected);

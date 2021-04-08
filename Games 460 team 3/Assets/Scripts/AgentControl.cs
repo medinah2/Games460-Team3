@@ -17,13 +17,34 @@ public class AgentControl : MonoBehaviour {
     public static bool collectEnough = false;
     public bool moved = false;
     public static bool playerMurdered = false;
-
+    public Transform assassinSpawnPoint1;
+    public Transform assassinSpawnPoint2;
+    public Transform assassinSpawnPoint3;
+    public Transform assassinSpawnPoint4;
+    public Transform assassinSpawnPoint5; 
+    public Transform assassinSpawnPoint6;
+    public Transform assassinSpawnPoint7;
+    public Transform assassinSpawnPoint8;
+    public Transform assassinSpawnPoint9;
+    public GameObject sneakyAssassin;
+    
+    Vector3[] assassinSpawnPositions = new Vector3[11];
 
 
     // Start is called before the first frame update
     void Start()
     {
 
+        assassinSpawnPositions[0] = assassinSpawnPoint1.transform.position;
+        assassinSpawnPositions[1] = assassinSpawnPoint2.transform.position;
+        assassinSpawnPositions[2] = assassinSpawnPoint3.transform.position;
+        assassinSpawnPositions[3] = assassinSpawnPoint4.transform.position;
+        assassinSpawnPositions[4] = assassinSpawnPoint5.transform.position;
+        assassinSpawnPositions[5] = assassinSpawnPoint6.transform.position;
+        assassinSpawnPositions[6] = assassinSpawnPoint7.transform.position;
+        assassinSpawnPositions[7] = assassinSpawnPoint8.transform.position;
+        assassinSpawnPositions[8] = assassinSpawnPoint9.transform.position;
+        
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
         // assassin.setDestination(player.position);
@@ -136,4 +157,12 @@ public class AgentControl : MonoBehaviour {
       }
     //}
 
+    
+     public void SpawnAssassin() {
+         int randomNum = Random.Range(0,9);
+         
+        
+         sneakyAssassin.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(assassinSpawnPositions[randomNum]);
+    }
+         
 }
