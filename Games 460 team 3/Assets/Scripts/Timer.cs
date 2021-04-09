@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     public int seconds = 1;
     public bool gracePeriod = true;
     public bool deduct = true;
+    public bool check = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,17 @@ public class Timer : MonoBehaviour
                 StartCoroutine(Time());
             }
         }
-        //Restarts game
-        if (minutes <= 0 && seconds <= 0)
+        //Check because timer was finishing early
+        if (minutes <= 0 && seconds == 59)
         {
-            SceneManager.LoadScene("SampleScene");
+            check = true;
+
+        }
+        //Timer should switch to night
+        if (minutes <= 0 && seconds <= 0 && check)
+        {
+            pedestrianController.night = true;
+            StopAllCoroutines();
 
         }
     }

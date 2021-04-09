@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 // created using https://youtu.be/MXCZ-n5VyJc
 
 public class pedestrianController : MonoBehaviour
@@ -10,7 +11,8 @@ public class pedestrianController : MonoBehaviour
   public Vector3 destination;
    Vector3 lastPosition;
    public bool reachedDestination;
-   public float stopDistance = 1;
+    public static bool night = false;
+    public float stopDistance = 1;
    public float rotationSpeed;
    public float minSpeed = 1f;
    public float maxSpeed = 3.5f;
@@ -23,32 +25,60 @@ public class pedestrianController : MonoBehaviour
    }
    private void Update()
    {
-       if (transform.position != destination)
-       {
-           Vector3 destinationDirection = destination - transform.position;
-           destinationDirection.y = 0;
+        
+            if (transform.position != destination)
+            {
+                Vector3 destinationDirection = destination - transform.position;
+                destinationDirection.y = 0;
 
-           float destinationDistance = destinationDirection.magnitude;
+                float destinationDistance = destinationDirection.magnitude;
 
-           if (destinationDistance >= stopDistance)
-           {
-               reachedDestination = false;
-               Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
-               transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-               transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
-           }
-           else
-           {
-               reachedDestination = true;
-           }
+                if (destinationDistance >= stopDistance)
+                {
+                    reachedDestination = false;
+                    Quaternion targetRotation = Quaternion.LookRotation(destinationDirection);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                    transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    reachedDestination = true;
+                }
 
-           velocity = (transform.position - lastPosition) / Time.deltaTime;
-           velocity.y = 0;
-           var velocityMagnitude = velocity.magnitude;
-           velocity = velocity.normalized;
-           var fwdDotProduct = Vector3.Dot(transform.forward, velocity);
-           var rightDotProduct = Vector3.Dot(transform.right, velocity);
-       }
+                velocity = (transform.position - lastPosition) / Time.deltaTime;
+                velocity.y = 0;
+                var velocityMagnitude = velocity.magnitude;
+                velocity = velocity.normalized;
+                var fwdDotProduct = Vector3.Dot(transform.forward, velocity);
+                var rightDotProduct = Vector3.Dot(transform.right, velocity);
+            }
+        
+        if(night)
+        {
+            stopDistance = 1;
+            
+                GameObject[] Sleep;
+                Sleep = GameObject.FindGameObjectsWithTag("Night");
+                GameObject closest = null;
+                float distance = Mathf.Infinity;
+                Vector3 position = transform.position;
+                foreach (GameObject Ni in Sleep)
+                {
+                    Vector3 diff = Ni.transform.position - position;
+                    float curDistance = diff.sqrMagnitude;
+                    if (curDistance < distance)
+                    {
+                        closest = Ni;
+                        distance = curDistance;
+                    }
+                }
+                destination = closest.transform.position;
+                
+            if (reachedDestination)
+            {
+                Destroy(gameObject);
+            }
+        }
    }
 
    public void SetDestination(Vector3 destination)

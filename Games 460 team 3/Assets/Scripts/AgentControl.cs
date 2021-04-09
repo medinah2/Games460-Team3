@@ -88,10 +88,25 @@ public class AgentControl : MonoBehaviour {
             }
 
 
+            if(evidenceCollected == 2 && !pedestrianController.night)
+        {
+            assassin.speed = 3.25f;
+        }
+
+        if (evidenceCollected == 4 && !pedestrianController.night)
+        {
+            assassin.speed = 3.5f;
+        }
+
+        if(pedestrianController.night)
+        {
+            assassin.speed = 5f;
+        }
+
+        
 
 
-
-      enoughEvidence();
+        enoughEvidence();
 
       CheckDestinationReached();
 

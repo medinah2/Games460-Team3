@@ -28,6 +28,11 @@ public class SafeZone : MonoBehaviour
             destroy = true;
             seconds = 15;
         }
+
+        if(pedestrianController.night)
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
