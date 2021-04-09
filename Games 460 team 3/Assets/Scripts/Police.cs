@@ -34,6 +34,10 @@ public class Police : MonoBehaviour
 
         start = Pol.position;
 
+        hunting = false;
+        whistle = false;
+        caught = false;
+
     }
 
     // Update is called once per frame

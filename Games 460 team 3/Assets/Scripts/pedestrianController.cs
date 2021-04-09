@@ -22,6 +22,7 @@ public class pedestrianController : MonoBehaviour
    private void Start()
    {
        movementSpeed = Random.Range(minSpeed, maxSpeed);
+        night = false;
    }
    private void Update()
    {
