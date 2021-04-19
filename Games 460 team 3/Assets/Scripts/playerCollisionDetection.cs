@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class playerCollisionDetection : MonoBehaviour
 {
-    public Vector3 homePosition;
-    public Transform playerTransform; 
+
 
     void Start()
     {
-        homePosition = transform.position; 
+        
     }
 
     // Update is called once per frame
@@ -17,14 +16,19 @@ public class playerCollisionDetection : MonoBehaviour
     {
         
     }
-/* 
-    private void OnCollisionEnter(Collision collision) {
-        Debug.Log("goes in");
-        if (collision.gameObject.tag == "Assassin") {
-            Debug.Log("works");
-            playerTransform.transform.position = homePosition;
+ 
+    private void OnTriggerEnter(Collider collision) {
+        
+        if (collision.gameObject.tag == "Evidence") {
+            Debug.Log("goes in");
+            
+            ProgressBar.newProgress += 1.0f;
+            
+            ProgressBar.incProgressValue(ProgressBar.newProgress);
+           
+          
         }
     }
 
-    */
+    
 }

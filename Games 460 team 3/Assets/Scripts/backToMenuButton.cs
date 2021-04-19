@@ -15,8 +15,19 @@ public class backToMenuButton : MonoBehaviour
    
     void Start()
     {
-       menuButton = GameObject.Find("Canvas/BackToMenu");
-       menuButton.SetActive(false);
+       
+      if (AgentControl.menuSwitcher == 1) {
+      menuButton = GameObject.FindGameObjectWithTag("MenuButtonOne");
+       
+      }
+      if (AgentControl.menuSwitcher == 2) {
+      menuButton = GameObject.FindGameObjectWithTag("MenuButtonTwo");
+      }
+       
+       //if (AgentControl.menuSwitcher == 2) {
+        // menuButton.GameObject.Find("Canvas/DeathScreen/BackToMenu");
+      // }
+       //menuButton.SetActive(false);
        Assassin = GameObject.Find("Assassin");
       
        

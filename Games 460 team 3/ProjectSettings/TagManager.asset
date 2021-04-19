@@ -8,6 +8,8 @@ TagManager:
   - Evidence
   - Police
   - Night
+  - MenuButtonTwo
+  - MenuButtonOne
   layers:
   - Default
   - TransparentFX

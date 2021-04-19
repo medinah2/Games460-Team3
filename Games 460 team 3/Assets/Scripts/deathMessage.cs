@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class deathMessage : MonoBehaviour
 {
-    Text deathMSG;
+    //Text deathMSG;
     // Start is called before the first frame update
     void Start()
     {
-      deathMSG = GetComponent<Text>();   
+      //deathMSG = GetComponent<Text>();   
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (AgentControl.playerMurdered == true) {
-          deathMSG.text = "You Died!";
-       }
-       else {
-          deathMSG.text = "";
-       }
+       //if (AgentControl.playerMurdered == true) {
+         // deathMSG.text = "You Died!";
+       //}
+       //else {
+         // deathMSG.text = "";
+       //}
     }
 }

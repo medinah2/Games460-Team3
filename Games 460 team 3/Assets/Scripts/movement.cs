@@ -14,7 +14,7 @@ public class movement : MonoBehaviour
 
     //public static GameObject playerCamera;
 
-    public int evidenceCollected = 0;
+    public static int evidenceCollected = 0;
     // Start is called before the first frame update
 
     void Start()
@@ -72,16 +72,16 @@ public class movement : MonoBehaviour
     // created this function to display the amount of evidenceCollected --> this can later be edited to display in a health bar type format,
     // but for now this is a basic display for our initial prototype (3/4/21)
     private void OnGUI(){
-      //gets evidenceCollected value using playerprefs
+      GUI.skin.label.fontSize = 25;
       evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
       // sets gui text color to black to easily see
-      GUI.contentColor = Color.black;
+      GUI.contentColor = Color.red;
 
       // if statement to determine if enough evidencr has been collected -- set to 5 but can be updated as we continue development
       if(evidenceCollected >= 5){
-        GUI.Label(new Rect(10,10,300,30), "You have gathered enough evidence!");
+        GUI.Label(new Rect(10,50,500,200), "You have gathered enough evidence!");
       }else{
-        GUI.Label(new Rect(10,10,300,20), "Evidence Collected: " + evidenceCollected);
+        GUI.Label(new Rect(10,50,500,200), "Evidence Collected: " + evidenceCollected + "/5");
       }
     }
 

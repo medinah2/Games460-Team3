@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class AgentControl : MonoBehaviour {
 
+
+  public GameObject WinScreen;
+  public GameObject DeathScreen;
   public Transform player;
   private NavMeshAgent assassin;
   Vector3 destination;
@@ -17,6 +20,7 @@ public class AgentControl : MonoBehaviour {
     public static bool collectEnough = false;
     public bool moved = false;
     public static bool playerMurdered = false;
+    public static int menuSwitcher;
     public Transform assassinSpawnPoint1;
     public Transform assassinSpawnPoint2;
     public Transform assassinSpawnPoint3;
@@ -34,6 +38,8 @@ public class AgentControl : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        
+        
 
         assassinSpawnPositions[0] = assassinSpawnPoint1.transform.position;
         assassinSpawnPositions[1] = assassinSpawnPoint2.transform.position;
@@ -142,7 +148,12 @@ public class AgentControl : MonoBehaviour {
             {
             Police.caught = true;
             Debug.Log("The Assassin has been captured");
+            WinScreen.gameObject.SetActive(true);
+            menuSwitcher = 1;
+            backToMenuButton.activateMenuButton();
             Destroy(this.gameObject);
+            
+                
             }
         }
 
@@ -152,7 +163,8 @@ public class AgentControl : MonoBehaviour {
         {
             playerMurdered = true;
             //movement.speed = 0;
-
+            menuSwitcher = 2;
+            DeathScreen.gameObject.SetActive(true);
             backToMenuButton.activateMenuButton();
             //something.setactive
             //GameObject.Find(BackToMenu);
