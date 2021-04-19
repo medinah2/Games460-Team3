@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 
 public class AgentControl : MonoBehaviour {
 
-
+  public GameObject shirt;
   public GameObject WinScreen;
   public GameObject DeathScreen;
   public Transform player;
@@ -25,21 +25,21 @@ public class AgentControl : MonoBehaviour {
     public Transform assassinSpawnPoint2;
     public Transform assassinSpawnPoint3;
     public Transform assassinSpawnPoint4;
-    public Transform assassinSpawnPoint5; 
+    public Transform assassinSpawnPoint5;
     public Transform assassinSpawnPoint6;
     public Transform assassinSpawnPoint7;
     public Transform assassinSpawnPoint8;
     public Transform assassinSpawnPoint9;
     public GameObject sneakyAssassin;
-    
+
     Vector3[] assassinSpawnPositions = new Vector3[11];
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        
+
+
 
         assassinSpawnPositions[0] = assassinSpawnPoint1.transform.position;
         assassinSpawnPositions[1] = assassinSpawnPoint2.transform.position;
@@ -50,7 +50,7 @@ public class AgentControl : MonoBehaviour {
         assassinSpawnPositions[6] = assassinSpawnPoint7.transform.position;
         assassinSpawnPositions[7] = assassinSpawnPoint8.transform.position;
         assassinSpawnPositions[8] = assassinSpawnPoint9.transform.position;
-        
+
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
         // assassin.setDestination(player.position);
@@ -109,7 +109,7 @@ public class AgentControl : MonoBehaviour {
             assassin.speed = 5f;
         }
 
-        
+
 
 
         enoughEvidence();
@@ -121,8 +121,9 @@ public class AgentControl : MonoBehaviour {
     // If enough evidence has been found, the assassin turns red
     void enoughEvidence(){
       if(evidenceCollected == 5){
-        GetComponent<Renderer>().material.color = Color.red;
-            collectEnough = true;
+        // GetComponentsInChildren<Shirt>().material.color = Color.red;
+        shirt.GetComponent<Renderer>().material.color = Color.red;
+        collectEnough = true;
         // would also increase speed here
       }
     }
@@ -152,8 +153,8 @@ public class AgentControl : MonoBehaviour {
             menuSwitcher = 1;
             backToMenuButton.activateMenuButton();
             Destroy(this.gameObject);
-            
-                
+
+
             }
         }
 
@@ -184,12 +185,12 @@ public class AgentControl : MonoBehaviour {
       }
     //}
 
-    
+
      public void SpawnAssassin() {
          int randomNum = Random.Range(0,9);
-         
-        
+
+
          sneakyAssassin.GetComponent<UnityEngine.AI.NavMeshAgent>().Warp(assassinSpawnPositions[randomNum]);
     }
-         
+
 }

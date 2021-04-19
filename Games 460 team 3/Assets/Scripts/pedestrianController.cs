@@ -17,16 +17,23 @@ public class pedestrianController : MonoBehaviour
    public float minSpeed = 1f;
    public float maxSpeed = 3.5f;
    public float movementSpeed;
-   Vector3 velocity;
+   public Vector3 velocity;
+   int velocityHash;
+
+   Animator animator;
 
    private void Start()
    {
+     animator = GetComponent<Animator>();
+     velocityHash = Animator.StringToHash("Velocity");
+
        movementSpeed = Random.Range(minSpeed, maxSpeed);
         night = false;
    }
    private void Update()
    {
-        
+     animator.SetFloat(velocityHash, 1f);
+
             if (transform.position != destination)
             {
                 Vector3 destinationDirection = destination - transform.position;
@@ -52,12 +59,16 @@ public class pedestrianController : MonoBehaviour
                 velocity = velocity.normalized;
                 var fwdDotProduct = Vector3.Dot(transform.forward, velocity);
                 var rightDotProduct = Vector3.Dot(transform.right, velocity);
+
+                // where animator stuff would be
+                // animator.SetFloat(velocityHash, Mathf.Abs(velocity.x += Time.deltaTime * movementSpeed));
+                animator.SetFloat(velocityHash, 0.6f);
             }
-        
+
         if(night)
         {
             stopDistance = 1;
-            
+
                 GameObject[] Sleep;
                 Sleep = GameObject.FindGameObjectsWithTag("Night");
                 GameObject closest = null;
@@ -74,7 +85,7 @@ public class pedestrianController : MonoBehaviour
                     }
                 }
                 destination = closest.transform.position;
-                
+
             if (reachedDestination)
             {
                 Destroy(gameObject);

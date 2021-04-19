@@ -6,7 +6,7 @@ public class WaypointNavigator : MonoBehaviour
 {
   pedestrianController controller;
   public Waypoint currentWaypoint;
-   
+
 
   int direction;
 
@@ -19,7 +19,7 @@ public class WaypointNavigator : MonoBehaviour
       direction = Mathf.RoundToInt(Random.Range(0f, 1f));
 
       controller.SetDestination((currentWaypoint.GetPosition()-new Vector3(0f, 1.19f, 0f)));
-      Debug.Log(currentWaypoint.GetPosition()-new Vector3(0f, 1.19f, 0f));
+      // Debug.Log(currentWaypoint.GetPosition()-new Vector3(0f, 1.19f, 0f));
     }
 
     // Update is called once per frame
@@ -77,7 +77,7 @@ public class WaypointNavigator : MonoBehaviour
             }
         }
 
-        
+
 
     }
 }

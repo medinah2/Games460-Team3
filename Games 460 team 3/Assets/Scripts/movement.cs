@@ -79,9 +79,9 @@ public class movement : MonoBehaviour
 
       // if statement to determine if enough evidencr has been collected -- set to 5 but can be updated as we continue development
       if(evidenceCollected >= 5){
-        GUI.Label(new Rect(10,50,500,200), "You have gathered enough evidence!");
+        GUI.Label(new Rect(5, 5, 50,30), "You have gathered enough evidence!");
       }else{
-        GUI.Label(new Rect(10,50,500,200), "Evidence Collected: " + evidenceCollected + "/5");
+        GUI.Label(new Rect(10,10,300,30), "Evidence Collected: " + evidenceCollected + "/5");
       }
     }
 
