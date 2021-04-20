@@ -20,12 +20,27 @@ public class pedestrianController : MonoBehaviour
    public Vector3 velocity;
    int velocityHash;
 
+   // public Transform player;
+   // Transform head;
+   //
+   // private Quaternion OriginalRotation;
+   // private Quaternion TargetRotation;
+   // public float TimeValue = 0.5f;
+
+   public Vector3 Offset;
+
    Animator animator;
 
    private void Start()
    {
      animator = GetComponent<Animator>();
      velocityHash = Animator.StringToHash("Velocity");
+     // head = animator.GetBoneTransform(HumanBodyBones.Head);
+     //
+     // OriginalRotation = head.rotation;
+     // head.LookAt(player.position);
+     // TargetRotation = head.rotation;
+
 
        movementSpeed = Random.Range(minSpeed, maxSpeed);
         night = false;
@@ -63,6 +78,27 @@ public class pedestrianController : MonoBehaviour
                 // where animator stuff would be
                 // animator.SetFloat(velocityHash, Mathf.Abs(velocity.x += Time.deltaTime * movementSpeed));
                 animator.SetFloat(velocityHash, 0.6f);
+
+
+                // head.LookAt(player.position);
+                // TargetRotation = head.rotation;
+                // head.rotation = Quaternion.Lerp( OriginalRotation , TargetRotation , TimeValue );
+                // head.rotation = head.rotation * Quaternion.Euler(Offset);
+
+                // turnInput = Input.GetAxis("Mouse Y");
+                // if (Math.Abs(turnInput ) > inputDelay)
+                // {
+                //     targetRotation *= Quaternion.AngleAxis(rotateVel * -turnInput * Time.deltaTime, Vector3.right);
+                //     Vector3 eulerAngles =  targetRotation.eulerAngles;
+                //     if (eulerAngles.y < 180)
+                //          eulerAngles.y=Mathf.Clamp(eulerAngles.y,0,maxDownAngle);
+                //     else
+                //          eulerAngles.y = Mathf.Clamp(eulerAngles.y,actualUpangle,360);
+                //     targetRotation = Quaternion.Euler(eulerAngles);
+                // }
+                // transform.rotation = targetRotation;
+
+
             }
 
         if(night)
@@ -92,6 +128,15 @@ public class pedestrianController : MonoBehaviour
             }
         }
    }
+
+   // void OnAnimatorIK(){
+   //   // if(npcStatePattern.persueTarget != null){
+   //     head.SetLookAtWeight(1, 0, 0.5f, 0.5f, 0.7f);
+   //     head.SetLookAtPosition(player.position);
+   //   // }else{
+   //   //   animator.SetLookAtWeight(0);
+   //   // }
+   // }
 
    public void SetDestination(Vector3 destination)
    {

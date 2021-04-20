@@ -13,6 +13,7 @@ public class AgentControl : MonoBehaviour {
   public GameObject shirt;
   public GameObject WinScreen;
   public GameObject DeathScreen;
+  
   public Transform player;
   private NavMeshAgent assassin;
   Vector3 destination;
@@ -32,6 +33,14 @@ public class AgentControl : MonoBehaviour {
     public Transform assassinSpawnPoint9;
     public GameObject sneakyAssassin;
 
+    // Added for character movement
+    Animator animator;
+    public float velocity = .0f;
+    public float acceleration = .4f;
+    public float deceleration = .8f;
+    int velocityHash;
+
+
     Vector3[] assassinSpawnPositions = new Vector3[11];
 
 
@@ -39,6 +48,8 @@ public class AgentControl : MonoBehaviour {
     void Start()
     {
 
+      animator = GetComponent<Animator>();
+      velocityHash = Animator.StringToHash("Velocity");
 
 
         assassinSpawnPositions[0] = assassinSpawnPoint1.transform.position;
@@ -68,6 +79,10 @@ public class AgentControl : MonoBehaviour {
       if (Vector3.Distance(destination, player.position) > 1.0f && !SafeZone.destroy){
         destination = player.position;
         assassin.destination = destination;
+
+        velocity += Time.deltaTime * acceleration;
+
+        animator.SetFloat(velocityHash, velocity);
       }
 
             if (SafeZone.destroy)
@@ -90,6 +105,9 @@ public class AgentControl : MonoBehaviour {
                 destination = closest.transform.position;
                 assassin.destination = destination;
 
+                velocity += Time.deltaTime * acceleration;
+
+                animator.SetFloat(velocityHash, velocity);
 
             }
 
