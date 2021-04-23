@@ -59,7 +59,9 @@ public class movement : MonoBehaviour
         float h = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         float v = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         Vector3 vel = playerTransform.forward * v + playerTransform.right * h + Vector3.down;
+        vel = Vector3.ClampMagnitude(vel, 1f);
         playerCharacterController.Move(vel);
+        
     }
 
     void CursorLockToggler()

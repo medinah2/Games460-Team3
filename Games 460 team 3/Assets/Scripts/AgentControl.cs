@@ -111,23 +111,61 @@ public class AgentControl : MonoBehaviour {
 
             }
 
-
-            if(evidenceCollected == 2 && !pedestrianController.night)
+        if (SafeZone.natural && !SafeZone.destroy)
         {
-            assassin.speed = 3.25f;
+            GameObject[] Peds;
+            Peds = GameObject.FindGameObjectsWithTag("Pedestrian");
+            GameObject closest = null;
+            float distance = Mathf.Infinity;
+            Vector3 position = transform.position;
+            foreach (GameObject Ped in Peds)
+            {
+                Vector3 diff = Ped.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = Ped;
+                    distance = curDistance;
+                }
+            }
+            destination = closest.transform.position;
+            assassin.destination = destination;
+
+            velocity += Time.deltaTime * acceleration;
+
+            animator.SetFloat(velocityHash, velocity);
+
         }
 
-        if (evidenceCollected == 4 && !pedestrianController.night)
+        if(Vector3.Distance(assassin.transform.position, player.position) < 5 && !Police.caught)
         {
-            assassin.speed = 3.5f;
+            Music.close = true;
+        }
+        else {
+            Music.close = false;
         }
 
-        if(pedestrianController.night)
+
+        if (evidenceCollected == 2 && !pedestrianController.night && !Police.caught)
         {
-            assassin.speed = 5f;
+            assassin.speed = 2.7f;
         }
 
+        if (evidenceCollected == 4 && !pedestrianController.night && !Police.caught)
+        {
+            assassin.speed = 3f;
+        }
 
+        if(pedestrianController.night && !Police.caught)
+        {
+            SafeZone.natural = false;
+            assassin.speed = 4f;
+        }
+
+        if(Police.caught)
+        {
+            assassin.speed = 0f;
+        }
 
 
         enoughEvidence();

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rip: {fileID: 8300000, guid: fc8d76b86cc9433468cab4ceaeebbb8a, type: 3}
+  Pickup: {fileID: 8300000, guid: 357eb669d5873994cb76a6b4df86fb4f, type: 3}
   foodie: {fileID: 1756438538067288}
   holdingFood: {fileID: 6494159455167955332, guid: f578aa42ced434ac2be927536cc1c2b1,
     type: 3}

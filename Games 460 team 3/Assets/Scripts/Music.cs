@@ -8,6 +8,9 @@ public class Music : MonoBehaviour
     public AudioClip Background;
     public AudioClip Sleep;
     public AudioClip DBD;
+    public bool game = true;
+    public static bool close = false;
+    public bool delay = true;
     public bool off = false;
     public bool off2 = false;
     public static float volume = 9;
@@ -15,13 +18,35 @@ public class Music : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Player.PlayOneShot(Background,volume);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!Player.isPlaying && !pedestrianController.night)
+
+        if(close && game)
+        {
+            Player.pitch = 1.3f;
+            StopAllCoroutines();
+            StartCoroutine("Delayed");
+            
+        }
+
+        if (!close && game && !delay)
+        {
+            
+            Player.pitch = 1f;
+            delay = true;
+        }
+
+        if(pedestrianController.night)
+        {
+            Player.pitch = 1f;
+        }
+
+        if (!Player.isPlaying && !pedestrianController.night)
         {
             Player.PlayOneShot(Background,volume);
         }
@@ -43,5 +68,11 @@ public class Music : MonoBehaviour
         {
             Player.PlayOneShot(DBD);
         }
+    }
+
+    IEnumerator Delayed()
+    {
+        yield return new WaitForSeconds(5);
+        delay = false;
     }
 }

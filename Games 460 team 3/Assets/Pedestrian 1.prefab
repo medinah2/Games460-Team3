@@ -1947,7 +1947,7 @@ GameObject:
   - component: {fileID: 1017928512575789296}
   m_Layer: 0
   m_Name: Pedestrian 1
-  m_TagString: Untagged
+  m_TagString: Pedestrian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2048,8 +2048,6 @@ MonoBehaviour:
   maxSpeed: 4
   movementSpeed: 1.0651344
   velocity: {x: 0, y: 0, z: 0}
-  player: {fileID: 6494159455167955336, guid: f578aa42ced434ac2be927536cc1c2b1, type: 3}
-  TimeValue: 0.5
   Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &7189573222399672262
 MonoBehaviour:

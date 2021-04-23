@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 {
 
     public GameObject timer;
+    public GameObject instructions;
     public int minutes = 3;
     public int seconds = 1;
     public bool gracePeriod = true;
@@ -20,7 +21,7 @@ public class Timer : MonoBehaviour
     {
         //Added a grace period for players to learn instructions and figure out what to do
         StartCoroutine(Grace());
-        
+        instructions.SetActive(true);
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class Timer : MonoBehaviour
             //Once the grace period is over the timer starts
             if (deduct == true)
             {
+                instructions.SetActive(false);
                 StartCoroutine(Time());
             }
         }

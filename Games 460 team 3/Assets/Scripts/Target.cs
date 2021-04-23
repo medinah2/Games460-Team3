@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
 {
 
     public AudioClip Rip;
-
+    public AudioClip Pickup;
 
     // foodie GameObject represents food being picked up
     public GameObject foodie;
@@ -87,8 +87,10 @@ public class Target : MonoBehaviour
 
         evidenceCollected++;
         Debug.Log("evidenceCollected:  " + evidenceCollected);
+            
+        AudioSource.PlayClipAtPoint(Pickup, this.transform.position, .1f);
 
-        PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
+            PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
 
         Destroy(gameObject);
       }

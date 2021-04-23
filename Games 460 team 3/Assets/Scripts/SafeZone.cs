@@ -8,6 +8,7 @@ public class SafeZone : MonoBehaviour
     public bool increase;
     public bool decrease;
     public static bool destroy;
+    public static bool natural = false;
     public float seconds = 15;
 
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ public class SafeZone : MonoBehaviour
         decrease = true;
         increase = false;
         inside = true;
+        natural = true;
 
         
     }
@@ -69,6 +71,7 @@ public class SafeZone : MonoBehaviour
             increase = true;
             decrease = false;
             inside = false;
+            natural = false;
             StopCoroutine(Time());
             StopAllCoroutines();
 

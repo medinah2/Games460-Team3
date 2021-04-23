@@ -10,6 +10,7 @@ TagManager:
   - Night
   - MenuButtonTwo
   - MenuButtonOne
+  - Pedestrian
   layers:
   - Default
   - TransparentFX

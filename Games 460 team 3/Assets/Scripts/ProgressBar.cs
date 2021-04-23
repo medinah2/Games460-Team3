@@ -25,7 +25,7 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         
+        newProgress = 0;
         //incProgressValue(newProgress);
     }
 
