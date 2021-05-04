@@ -61,7 +61,7 @@ public class Target : MonoBehaviour
 
       //if (pickUpObjects.foodInHand != true) {
 
-        if (foodie.name == "Item") {
+        if (foodie.gameObject.tag == "Evidence") {
          //  foodie.transform.parent = holdingFood.transform;
          //  foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
          //  //foodie.transform.position = holdingFood.transform.position + transform.up * 0.03f + transform.forward * -0.10f;
@@ -72,7 +72,20 @@ public class Target : MonoBehaviour
          //
          // PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
          // Destroy(foodie);
+         evidenceCollected++;
+         Debug.Log("evidenceCollected:  " + evidenceCollected);
+
+         AudioSource.PlayClipAtPoint(Pickup, this.transform.position, .1f);
+
+         PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
+
+         Destroy(gameObject);
+
          Debug.Log("clicked");
+
+         ProgressBar.newProgress += 1.0f;
+
+         ProgressBar.incProgressValue(ProgressBar.newProgress);
 
         }
     }
@@ -84,15 +97,16 @@ public class Target : MonoBehaviour
       if(other.name == "Player"){
         // foodie.transform.parent = holdingFood.transform;
         // foodie.transform.position = holdingFood.transform.position + transform.forward * -0.06f;
-
-        evidenceCollected++;
-        Debug.Log("evidenceCollected:  " + evidenceCollected);
-            
-        AudioSource.PlayClipAtPoint(Pickup, this.transform.position, .1f);
-
-            PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
-
-        Destroy(gameObject);
+        //
+        // evidenceCollected++;
+        // Debug.Log("evidenceCollected:  " + evidenceCollected);
+        //
+        // AudioSource.PlayClipAtPoint(Pickup, this.transform.position, .1f);
+        //
+        //     PlayerPrefs.SetInt("evidenceCollected", evidenceCollected);
+        //
+        // Destroy(gameObject);
+        Debug.Log("evidence collided");
       }
 
       if(other.name == "Assassin" && SafeZone.destroy)

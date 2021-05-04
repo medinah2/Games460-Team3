@@ -109,11 +109,11 @@ public class evidenceSpawnerScript : MonoBehaviour
             if(temp == 0){
               Instantiate(prefab1, spawnPositions[randomNum], Quaternion.identity);
             }else if(temp == 1){
-              Instantiate(prefab2, spawnPositions[randomNum], Quaternion.identity);
+              Instantiate(prefab1, spawnPositions[randomNum], Quaternion.identity);
             }else if(temp == 2){
-              Instantiate(prefab3, spawnPositions[randomNum], Quaternion.identity);
+              Instantiate(prefab1, spawnPositions[randomNum], Quaternion.identity);
             }else{
-              Instantiate(prefab4, spawnPositions[randomNum], Quaternion.identity);
+              Instantiate(prefab1, spawnPositions[randomNum], Quaternion.identity);
             }
 
             // Instantiate(prefab1, spawnPositions[randomNum], Quaternion.identity);
