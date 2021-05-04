@@ -11,6 +11,7 @@ public class backToMenuButton : MonoBehaviour
 
     public static GameObject menuButton;
     public static GameObject Assassin;
+   // public static GameObject options;
 
 
     void Start()
@@ -30,7 +31,7 @@ public class backToMenuButton : MonoBehaviour
        //menuButton.SetActive(false);
        Assassin = GameObject.Find("Assassin");
 
-
+     //  options = GameObject.Find("OptionsMenu");
 
     }
 
@@ -48,6 +49,8 @@ public class backToMenuButton : MonoBehaviour
       if (AgentControl.menuSwitcher == 2) {
       menuButton = GameObject.FindGameObjectWithTag("MenuButtonTwo");
       }
+      
+       Debug.Log(menuButton);
 
        menuButton.SetActive(true);
        Cursor.lockState = CursorLockMode.None;
@@ -56,16 +59,17 @@ public class backToMenuButton : MonoBehaviour
 
     }
 
-    public static void deactivateMenuButton() {
-      menuButton.SetActive(false);
-    }
+   // public static void deactivateMenuButton() {
+    //  menuButton.SetActive(false);
+  //  }
 
-    public void goToMainMenu() {
+    public static void goToMainMenu() {
       SceneManager.LoadScene("Menu");
-      //Debug.Log("works");
+      ProgressBar.newProgress = 0;
       AgentControl.playerMurdered = false;
       movement.speed = 4;
       Assassin.SetActive(true);
+      //options.SetActive(false);
       //Cursor.lockState = CursorLockMode.Locked;
 
 

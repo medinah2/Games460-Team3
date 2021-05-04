@@ -13,6 +13,9 @@ public class AgentControl : MonoBehaviour {
   public GameObject shirt;
   public GameObject WinScreen;
   public GameObject DeathScreen;
+  public GameObject OptionsScreen;
+  //public GameObject optionsButton;
+    
   
   public Transform player;
   private NavMeshAgent assassin;
@@ -22,6 +25,7 @@ public class AgentControl : MonoBehaviour {
     public bool moved = false;
     public static bool playerMurdered = false;
     public static int menuSwitcher;
+    public static int optionsSwitcher;
     public Transform assassinSpawnPoint1;
     public Transform assassinSpawnPoint2;
     public Transform assassinSpawnPoint3;
@@ -47,10 +51,13 @@ public class AgentControl : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        
+       OptionsScreen.SetActive(false);
+      //OptionsScreen = GameObject.Find("OptionsMenu");
 
       animator = GetComponent<Animator>();
       velocityHash = Animator.StringToHash("Velocity");
-
+       // OptionsScreen = GameObject.FindGameObjectWithTag("OptionsBut");
 
         assassinSpawnPositions[0] = assassinSpawnPoint1.transform.position;
         assassinSpawnPositions[1] = assassinSpawnPoint2.transform.position;
@@ -64,7 +71,7 @@ public class AgentControl : MonoBehaviour {
 
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
-        // assassin.setDestination(player.position);
+        collectEnough = false;
 
 
     }
@@ -72,6 +79,27 @@ public class AgentControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
+     if (Input.GetKey(KeyCode.O)) {
+        WinScreen.SetActive(false);
+        DeathScreen.SetActive(false);
+        //optionsSwitcher = 1;
+        OptionsScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        //backToMenuButton.activateOptions();
+        
+     
+       //optionsButton.SetActive(true);
+         
+         
+      }
+      if (Input.GetKey(KeyCode.X)) {
+         OptionsScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+       
+         //optionsButton.SetActive(false);
+       
+      }
 
         evidenceCollected = PlayerPrefs.GetInt("evidenceCollected");
 
@@ -205,10 +233,11 @@ public class AgentControl : MonoBehaviour {
             {
             Police.caught = true;
             Debug.Log("The Assassin has been captured");
-            WinScreen.gameObject.SetActive(true);
             menuSwitcher = 1;
+            WinScreen.gameObject.SetActive(true);
+            
             backToMenuButton.activateMenuButton();
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
 
             }

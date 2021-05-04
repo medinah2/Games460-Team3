@@ -11,6 +11,8 @@ TagManager:
   - MenuButtonTwo
   - MenuButtonOne
   - Pedestrian
+  - OptionsBut
+  - GameManagement
   layers:
   - Default
   - TransparentFX

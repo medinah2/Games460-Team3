@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Music : MonoBehaviour
 {
+    public Slider VolumeSlider;
     public AudioSource Player;
     public AudioClip Background;
     public AudioClip Sleep;
@@ -18,7 +20,9 @@ public class Music : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
+        Player.volume = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().audioVolume;
+        VolumeSlider.value = Player.volume;
         Player.PlayOneShot(Background,volume);
     }
 
@@ -74,5 +78,12 @@ public class Music : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         delay = false;
+    }
+    
+     public void AdjustSound(float newVolume) {
+    
+      Player.volume = Mathf.Clamp(newVolume,0.0f,1.0f);
+     
+
     }
 }

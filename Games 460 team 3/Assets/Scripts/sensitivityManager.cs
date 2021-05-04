@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class sensitivityManager : MonoBehaviour
 {
-
-    float playerSensitivity;
+    private static GameObject ManagerInstance;
+    public float playerSensitivity = 9.0f;
+    public float audioVolume = 0.10f;
+    
+    
+    void Awake() {
+      DontDestroyOnLoad(this.gameObject);
+      if (ManagerInstance != null) {
+         Destroy(ManagerInstance);
+        
+         
+      }
+       ManagerInstance = this.gameObject;
+    
+    }
     void Start()
     {
-
+    //DontDestroyOnLoad(this.gameObject);
+    
+    
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Debug.Log("Sensitivity : " + movement.sensitivity);
-        //Debug.Log("Volume: " + Music.volume);
-    }
+   
 
 
     public void AdjustSensitivity(float newSensitivity) {
-     movement.sensitivity = newSensitivity;
+     playerSensitivity = newSensitivity;
     }
 
-    public void AdjustVolume(float newVolume) {
-      Music.volume = newVolume;
-      buttonSound.buttonVolume = newVolume;
+   public void AdjustVolume(float newVolume) {
+    
+     audioVolume = newVolume;
 
     }
 

@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class movement : MonoBehaviour
 {
+
+    public Slider SensitivitySlider;
     public Transform playerTransform;
     public CharacterController playerCharacterController;
     float pitch = 0;
     float yaw = 0;
     public static float sensitivity = 2;
     public static float speed = 4;
+
+    public GameObject instructionBox;
+
 
     //public static GameObject playerCamera;
 
@@ -19,17 +25,23 @@ public class movement : MonoBehaviour
 
     void Start()
     {
+        
+        sensitivity = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().playerSensitivity;
+        SensitivitySlider.value = sensitivity;
 
        // playerCamera = GameObject.Find("Player/PlayerView");
         //Changes the lock state of our cursor to locked.
         //This hides the cursor and keeps it locked to the center of the game view.
         //The CursorLockToggle method handles unlocking - to unlock or relock the cursor, press ESC.
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         PlayerPrefs.SetInt("evidenceCollected", 0);
 
 
         //This code automatically grabs the references we need to components on the player object.
 
+        //Shows instruction popup
+        instructionBox.SetActive(true);
+        Time.timeScale = 0f;
 
     }
 
@@ -81,18 +93,25 @@ public class movement : MonoBehaviour
 
       // if statement to determine if enough evidencr has been collected -- set to 5 but can be updated as we continue development
       if(evidenceCollected >= 5){
-        GUI.Label(new Rect(5, 5, 50,30), "You have gathered enough evidence!");
+        GUI.Label(new Rect(Screen.width/16, Screen.height/19, 600,30), "You have gathered enough evidence!");
       }else{
-        GUI.Label(new Rect(10,10,300,30), "Evidence Collected: " + evidenceCollected + "/5");
+        GUI.Label(new Rect(Screen.width/16,Screen.height/19,300,30), "Evidence Collected: " + evidenceCollected + "/5");
       }
     }
 
 
-    //public static void AdjustSensitivity(float newSensitivity) {
-     // sensitivity = newSensitivity;
+    public void AdjustSensitivity(float newSensitivity) {
+      sensitivity = newSensitivity;
 
-    //}
+    }
 
-
+    // Gets rid of instruction box when press button
+    public void StartButton()
+    {
+        instructionBox.SetActive(false);
+        Time.timeScale = 1f;
+        //locks once button is pressed
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
 }
