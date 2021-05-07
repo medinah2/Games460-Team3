@@ -16,7 +16,7 @@ public class PedestrianAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        night = false;
         animator = GetComponent<Animator>();
         velocityHash = Animator.StringToHash("Velocity");
         Ped = GetComponent<NavMeshAgent>();
