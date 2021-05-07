@@ -21404,7 +21404,7 @@ MonoBehaviour:
   minutes: 3
   seconds: 1
   gracePeriod: 1
-  deduct: 0
+  deduct: 1
   check: 0
 --- !u!4 &2074195648
 Transform:

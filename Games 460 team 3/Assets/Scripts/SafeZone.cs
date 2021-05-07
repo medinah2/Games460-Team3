@@ -32,6 +32,7 @@ public class SafeZone : MonoBehaviour
 
         if(PedestrianAI.night)
         {
+            natural = false;
             Destroy(this.gameObject);
         }
     }
@@ -55,7 +56,7 @@ public class SafeZone : MonoBehaviour
 
             if (inside && decrease && seconds > 0)
             {
-                
+                natural = true;
                 decrease = false;
                 StartCoroutine(Time());
                 
