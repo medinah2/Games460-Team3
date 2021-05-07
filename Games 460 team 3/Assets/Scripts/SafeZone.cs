@@ -30,7 +30,7 @@ public class SafeZone : MonoBehaviour
             seconds = 15;
         }
 
-        if(pedestrianController.night)
+        if(PedestrianAI.night)
         {
             Destroy(this.gameObject);
         }

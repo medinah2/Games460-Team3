@@ -25,8 +25,10 @@ public class movement : MonoBehaviour
 
     void Start()
     {
+    
         
-        sensitivity = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().playerSensitivity;
+        
+        sensitivity = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().playerSensitivity; 
         SensitivitySlider.value = sensitivity;
 
        // playerCamera = GameObject.Find("Player/PlayerView");

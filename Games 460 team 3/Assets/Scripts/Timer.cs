@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
         //Timer should switch to night
         if (minutes <= 0 && seconds <= 0 && check)
         {
-            pedestrianController.night = true;
+            PedestrianAI.night = true;
             StopAllCoroutines();
 
         }

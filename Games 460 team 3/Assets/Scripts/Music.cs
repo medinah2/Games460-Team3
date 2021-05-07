@@ -45,30 +45,30 @@ public class Music : MonoBehaviour
             delay = true;
         }
 
-        if(pedestrianController.night)
+        if(PedestrianAI.night)
         {
             Player.pitch = 1f;
         }
 
-        if (!Player.isPlaying && !pedestrianController.night)
+        if (!Player.isPlaying && !PedestrianAI.night)
         {
             Player.PlayOneShot(Background,volume);
         }
 
-        if(pedestrianController.night && !off)
+        if(PedestrianAI.night && !off)
         {
             Player.Stop();
             Player.volume = .4f;
             off = true;
         }
 
-        if(pedestrianController.night && off && !off2)
+        if(PedestrianAI.night && off && !off2)
         {
             Player.PlayOneShot(Sleep);
             off2 = true;
         }
 
-        if(pedestrianController.night && off & off2 && !Player.isPlaying)
+        if(PedestrianAI.night && off & off2 && !Player.isPlaying)
         {
             Player.PlayOneShot(DBD);
         }

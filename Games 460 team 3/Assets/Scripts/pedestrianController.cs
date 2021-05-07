@@ -11,7 +11,6 @@ public class pedestrianController : MonoBehaviour
   public Vector3 destination;
    Vector3 lastPosition;
    public bool reachedDestination;
-    public static bool night = false;
     public float stopDistance = 1;
    public float rotationSpeed;
    public float minSpeed = 1f;
@@ -43,7 +42,7 @@ public class pedestrianController : MonoBehaviour
 
 
        movementSpeed = Random.Range(minSpeed, maxSpeed);
-        night = false;
+        PedestrianAI.night = false;
    }
    private void Update()
    {
@@ -101,7 +100,7 @@ public class pedestrianController : MonoBehaviour
 
             }
 
-        if(night)
+        if(PedestrianAI.night)
         {
             stopDistance = 1;
 

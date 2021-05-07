@@ -14,33 +14,6 @@ public class backToMenuButton : MonoBehaviour
    // public static GameObject options;
 
 
-    void Start()
-    {
-
-      if (AgentControl.menuSwitcher == 1) {
-      menuButton = GameObject.FindGameObjectWithTag("MenuButtonOne");
-
-      }
-      if (AgentControl.menuSwitcher == 2) {
-      menuButton = GameObject.FindGameObjectWithTag("MenuButtonTwo");
-      }
-
-       //if (AgentControl.menuSwitcher == 2) {
-        // menuButton.GameObject.Find("Canvas/DeathScreen/BackToMenu");
-      // }
-       //menuButton.SetActive(false);
-       Assassin = GameObject.Find("Assassin");
-
-     //  options = GameObject.Find("OptionsMenu");
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public static void activateMenuButton() {
       if (AgentControl.menuSwitcher == 1) {
       menuButton = GameObject.FindGameObjectWithTag("MenuButtonOne");
@@ -49,6 +22,8 @@ public class backToMenuButton : MonoBehaviour
       if (AgentControl.menuSwitcher == 2) {
       menuButton = GameObject.FindGameObjectWithTag("MenuButtonTwo");
       }
+      
+      Assassin = GameObject.Find("Assassin");
       
        Debug.Log(menuButton);
 
@@ -68,7 +43,7 @@ public class backToMenuButton : MonoBehaviour
       ProgressBar.newProgress = 0;
       AgentControl.playerMurdered = false;
       movement.speed = 4;
-      Assassin.SetActive(true);
+      //Assassin.SetActive(true);
       //options.SetActive(false);
       //Cursor.lockState = CursorLockMode.Locked;
 

@@ -13,6 +13,7 @@ TagManager:
   - Pedestrian
   - OptionsBut
   - GameManagement
+  - Waypoint
   layers:
   - Default
   - TransparentFX

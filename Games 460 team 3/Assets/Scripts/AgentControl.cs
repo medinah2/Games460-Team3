@@ -174,17 +174,17 @@ public class AgentControl : MonoBehaviour {
         }
 
 
-        if (evidenceCollected == 2 && !pedestrianController.night && !Police.caught)
+        if (evidenceCollected == 2 && !PedestrianAI.night && !Police.caught)
         {
             assassin.speed = 2.7f;
         }
 
-        if (evidenceCollected == 4 && !pedestrianController.night && !Police.caught)
+        if (evidenceCollected == 4 && !PedestrianAI.night && !Police.caught)
         {
             assassin.speed = 3f;
         }
 
-        if(pedestrianController.night && !Police.caught)
+        if(PedestrianAI.night && !Police.caught)
         {
             SafeZone.natural = false;
             assassin.speed = 4f;

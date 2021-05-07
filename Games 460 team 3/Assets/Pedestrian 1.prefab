@@ -1945,6 +1945,8 @@ GameObject:
   - component: {fileID: 2120872177216886251}
   - component: {fileID: 8163118119025789120}
   - component: {fileID: 1017928512575789296}
+  - component: {fileID: -2205416229296906014}
+  - component: {fileID: 821108570572277447}
   m_Layer: 0
   m_Name: Pedestrian 1
   m_TagString: Pedestrian
@@ -2035,7 +2037,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7189573222399672268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64d5488ca205e4d5bbacafd1b3d8c432, type: 3}
   m_Name: 
@@ -2044,8 +2046,8 @@ MonoBehaviour:
   reachedDestination: 0
   stopDistance: 2.5
   rotationSpeed: 120
-  minSpeed: 1
-  maxSpeed: 4
+  minSpeed: 0
+  maxSpeed: 0
   movementSpeed: 1.0651344
   velocity: {x: 0, y: 0, z: 0}
   Offset: {x: 0, y: 0, z: 0}
@@ -2056,7 +2058,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7189573222399672268}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eab16f70318614a90a746f08af519deb, type: 3}
   m_Name: 
@@ -2112,6 +2114,44 @@ MonoBehaviour:
   ikActive: 1
   lookObj: {fileID: 6494159455167955336, guid: f578aa42ced434ac2be927536cc1c2b1, type: 3}
   lookWeight: 2
+--- !u!195 &-2205416229296906014
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189573222399672268}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5000001
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &821108570572277447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189573222399672268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a1dd2c57fb6b3409f521382ad1bbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waypoints: []
+  test: 0
+  random: 0
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &7192820726236964104
 GameObject:
   m_ObjectHideFlags: 0

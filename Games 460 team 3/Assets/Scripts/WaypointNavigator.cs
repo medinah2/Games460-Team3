@@ -25,7 +25,7 @@ public class WaypointNavigator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pedestrianController.night)
+        if (!PedestrianAI.night)
         {
             if (controller.reachedDestination)
             {
