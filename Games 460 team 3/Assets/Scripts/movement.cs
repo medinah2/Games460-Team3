@@ -14,6 +14,7 @@ public class movement : MonoBehaviour
     float yaw = 0;
     public static float sensitivity = 2;
     public static float speed = 4;
+    public static int enableCameraRotation = 1;
 
     public GameObject instructionBox;
 
@@ -25,10 +26,10 @@ public class movement : MonoBehaviour
 
     void Start()
     {
-    
-        
-        
-        sensitivity = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().playerSensitivity; 
+
+        sensitivity = sensitivityManager.playerSensitivity;
+
+        //sensitivity = GameObject.FindGameObjectWithTag("GameManagement").GetComponent<sensitivityManager>().playerSensitivity;
         SensitivitySlider.value = sensitivity;
 
        // playerCamera = GameObject.Find("Player/PlayerView");
@@ -52,13 +53,19 @@ public class movement : MonoBehaviour
     {
         RotateCamera();
         MovePlayer();
+        Debug.Log("sensitivity: " + sensitivity);
     }
+
 
     void RotateCamera()
     {
+       if (enableCameraRotation == 1) {
         //Add or subtract rotation based on where the mouse is moving
         pitch -= Input.GetAxis("Mouse Y") * sensitivity;
         yaw += Input.GetAxis("Mouse X") * sensitivity;
+
+        //We clamp the pitch so that the player isn't able to rotate their head too far up or down.
+        pitch = Mathf.Clamp(pitch, -60f, 60f);
 
         //camera rotates completely, fix use clamp or if statements
         Vector3 targetPlayerRotation = new Vector3(0, yaw);
@@ -66,16 +73,18 @@ public class movement : MonoBehaviour
 
         Vector3 targetCameraRotation = new Vector3(pitch, yaw);
         transform.eulerAngles = targetCameraRotation;
+        }
     }
 
     void MovePlayer()
     {
+       // if (enableCameraRotation == 1) {
         float h = Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         float v = Input.GetAxis("Vertical") * Time.deltaTime * speed;
         Vector3 vel = playerTransform.forward * v + playerTransform.right * h + Vector3.down;
         vel = Vector3.ClampMagnitude(vel, 1f);
         playerCharacterController.Move(vel);
-        
+        //}
     }
 
     void CursorLockToggler()
@@ -94,11 +103,11 @@ public class movement : MonoBehaviour
       GUI.contentColor = Color.red;
 
       // if statement to determine if enough evidencr has been collected -- set to 5 but can be updated as we continue development
-      if(evidenceCollected >= 5){
-        GUI.Label(new Rect(Screen.width/16, Screen.height/19, 600,30), "You have gathered enough evidence!");
-      }else{
-        GUI.Label(new Rect(Screen.width/16,Screen.height/19,300,30), "Evidence Collected: " + evidenceCollected + "/5");
-      }
+      //if(evidenceCollected >= 5){
+        //GUI.Label(new Rect(Screen.width/16, Screen.height/19, 600,30), "You have gathered enough evidence!");
+      //}else{
+       // GUI.Label(new Rect(Screen.width/16,Screen.height/19,300,30), "Evidence Collected: " + evidenceCollected + "/5");
+     // }
     }
 
 

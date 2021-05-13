@@ -32,7 +32,7 @@ public class PedestrianAI : MonoBehaviour
         {
 
             Selector();
-            
+
         }
         velocity = (transform.position - lastPosition) / Time.deltaTime;
         velocity.y = 0;
@@ -43,7 +43,7 @@ public class PedestrianAI : MonoBehaviour
 
         if (night)
         {
-            
+
 
             GameObject[] Sleep;
             Sleep = GameObject.FindGameObjectsWithTag("Night");

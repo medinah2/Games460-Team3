@@ -5,7 +5,7 @@ using UnityEngine;
 public class sensitivityManager : MonoBehaviour
 {
     private static GameObject ManagerInstance;
-    public float playerSensitivity = 9.0f;
+    public static float playerSensitivity = 9.0f;
     public float audioVolume = 0.10f;
     
     

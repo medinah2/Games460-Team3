@@ -52,6 +52,8 @@ public class AgentControl : MonoBehaviour {
     void Start()
     {
         
+     
+        
        OptionsScreen.SetActive(false);
       //OptionsScreen = GameObject.Find("OptionsMenu");
 
@@ -81,6 +83,7 @@ public class AgentControl : MonoBehaviour {
     {
         
      if (Input.GetKey(KeyCode.O)) {
+        movement.enableCameraRotation = 0;
         WinScreen.SetActive(false);
         DeathScreen.SetActive(false);
         //optionsSwitcher = 1;
@@ -94,6 +97,7 @@ public class AgentControl : MonoBehaviour {
          
       }
       if (Input.GetKey(KeyCode.X)) {
+         movement.enableCameraRotation = 1;
          OptionsScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
        
