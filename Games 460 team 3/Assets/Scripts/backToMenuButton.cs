@@ -33,10 +33,11 @@ public class backToMenuButton : MonoBehaviour
        Assassin.SetActive(false);
 
     }
+  
 
-   // public static void deactivateMenuButton() {
+    // public static void deactivateMenuButton() {
     //  menuButton.SetActive(false);
-  //  }
+    //  }
 
     public static void goToMainMenu() {
       SceneManager.LoadScene("Menu");

@@ -74,7 +74,7 @@ public class AgentControl : MonoBehaviour {
         assassin = this.GetComponent<NavMeshAgent>();
         destination = assassin.destination;
         collectEnough = false;
-
+        playerMurdered = false;
 
     }
 

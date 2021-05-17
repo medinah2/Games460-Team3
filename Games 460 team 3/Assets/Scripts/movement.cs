@@ -9,6 +9,9 @@ public class movement : MonoBehaviour
 
     public Slider SensitivitySlider;
     public Transform playerTransform;
+    public GameObject[] Evidence;
+    public GameObject Death;
+    public GameObject Assassin;
     public CharacterController playerCharacterController;
     float pitch = 0;
     float yaw = 0;
@@ -54,6 +57,16 @@ public class movement : MonoBehaviour
         RotateCamera();
         MovePlayer();
         Debug.Log("sensitivity: " + sensitivity);
+
+        Evidence = GameObject.FindGameObjectsWithTag("Evidence");
+
+        if (Evidence.Length + evidenceCollected < 5)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            movement.speed = 0;
+            Death.SetActive(true);
+            Assassin.SetActive(false);
+        }
     }
 
 

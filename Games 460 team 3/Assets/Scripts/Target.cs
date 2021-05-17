@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
 
     public AudioClip Rip;
     public AudioClip Pickup;
+    
 
     // foodie GameObject represents food being picked up
     public GameObject foodie;
@@ -25,6 +26,7 @@ public class Target : MonoBehaviour
 
     void Start()
     {
+      
       //sets items to a random color -- not necessary, just added so that we could differentiate evidence objects
       GetComponent<Renderer>().material.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
@@ -42,8 +44,7 @@ public class Target : MonoBehaviour
 
         DeleteFoodOne();
      }
-
-
+       
     }
 
 
